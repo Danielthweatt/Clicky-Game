@@ -1,13 +1,13 @@
 import React from "react";
 import "./Header.css";
 
-const Header = () => (
+const Header = props => (
     <header>
         <h1 className="header-title">
             Clicky Game
         </h1>
         <h1 className="score-board">
-            Score: <span id="score">0</span> | High Score: <span id="high-score">0</span>
+            Score: <span>{props.score}</span> | High Score: <span>{props.highScore}</span>
         </h1>
     </header>
 );
