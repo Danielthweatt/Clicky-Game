@@ -14,18 +14,6 @@ header {
   font-size: 1.5em;
 }
 
-.new-game {
-  color: green;
-}
-
-.re-start {
-  color: red;
-}
-
-.new {
-  color: green;
-}
-
 @media screen and (min-width: 550px) {
   .header-title {
     display: inline-block;
