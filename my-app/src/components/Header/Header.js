@@ -7,7 +7,7 @@ const Header = props => (
             Clicky Game
         </h1>
         <h1 className="score-board">
-            Score: <span>{props.score}</span> | High Score: <span>{props.highScore}</span>
+            <span className={props.gameType}>Score: {props.score}</span> | <span className={props.newHighScore}>High Score: {props.highScore}</span>
         </h1>
     </header>
 );

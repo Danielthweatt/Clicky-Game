@@ -11,26 +11,51 @@ class App extends Component {
     characters,
     charactersClicked: [],
     score: 0,
-    highScore: 0
+    highScore: 0,
+    newHighScore: "not-new",
+    gameType: "new-game"
   };
 
-  updateHighScore = () => {
-    if (this.state.score > this.state.highScore) {
-      return this.state.score;
+  updateHighScore = (score) => {
+    if (score > this.state.highScore) {
+      return {
+        highScore: score,
+        new: "new"
+      };
     } else {
-      return this.state.highScore;
+      return {
+        highScore: this.state.highScore,
+        new: "not-new"
+      };
     }
   };
 
   clickCharacter = (characterName) => {
     if (this.state.charactersClicked.includes(characterName)) {
-      const newHighScore = this.updateHighScore();
-      this.setState({charactersClicked: [], score: 0, highScore: newHighScore});
+      const updatedHighScore = this.updateHighScore(this.state.score);
+      this.setState({
+        charactersClicked: [], 
+        score: 0, 
+        highScore: updatedHighScore.highScore,
+        newHighScore: updatedHighScore.new,
+        gameType: "re-start"
+      });
     } else {
-      const charactersClicked = this.state.charactersClicked;
-      charactersClicked.push(characterName);
       const score = this.state.score + 1;
-      this.setState({charactersClicked, score});
+      if (score === 12) {
+        const updatedHighScore = this.updateHighScore(score);
+        this.setState({
+          charactersClicked: [], 
+          score: 0, 
+          highScore: updatedHighScore.highScore,
+          newHighScore: updatedHighScore.new,
+          gameType: "new-game"
+        });
+      } else {
+        const charactersClicked = this.state.charactersClicked;
+        charactersClicked.push(characterName);
+        this.setState({charactersClicked, score});
+      }
     }
   };
 
@@ -39,7 +64,9 @@ class App extends Component {
       <div>
         <Header 
           score={this.state.score} 
-          highScore={this.state.highScore} 
+          highScore={this.state.highScore}
+          gameType={this.state.gameType}
+          newHighScore={this.state.newHighScore}
         />
         <Main>
           <Wrapper>
