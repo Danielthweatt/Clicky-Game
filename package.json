@@ -1,22 +1,16 @@
 {
-  "name": "clicky-game",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Danielthweatt/Clicky-Game.git"
-  },
-  "author": "Daniel Thweatt",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Danielthweatt/Clicky-Game/issues"
-  },
-  "homepage": "https://github.com/Danielthweatt/Clicky-Game#readme",
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "create-react-app": "^1.5.2"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
